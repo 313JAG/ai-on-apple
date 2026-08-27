@@ -1,4 +1,5 @@
 import { LINKEDIN_URL, SLACK_URL } from "./constants";
+import { SpectrumBars } from "./spectrum-ribbon";
 
 const focus =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1769d2]";
