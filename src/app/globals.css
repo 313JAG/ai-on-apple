@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  /* Apple-inspired palette */
+  --background: #fafafa;
+  --foreground: #1d1d1f;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --muted: #f5f5f7;
+  --muted-foreground: #6e6e73;
+  --border: #d2d2d7;
+  --ring: #0071e3;
+
+  /* Rainbow accent — derived from community logo */
+  --rainbow-red: #fc5c65;
+  --rainbow-orange: #fd9644;
+  --rainbow-yellow: #fed330;
+  --rainbow-green: #26de81;
+  --rainbow-teal: #2bcbba;
+  --rainbow-blue: #45aaf2;
+  --rainbow-indigo: #4b7bec;
+  --rainbow-purple: #a55eea;
+  --rainbow-pink: #fd79a8;
+
+  --rainbow-gradient: linear-gradient(
+    90deg,
+    var(--rainbow-red),
+    var(--rainbow-orange),
+    var(--rainbow-yellow),
+    var(--rainbow-green),
+    var(--rainbow-teal),
+    var(--rainbow-blue),
+    var(--rainbow-indigo),
+    var(--rainbow-purple),
+    var(--rainbow-pink)
+  );
+
+  /* Typography — SF Pro stack with Inter fallback (set in layout.tsx) */
+  --font-sf-pro: var(--font-inter), -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", "SF Pro Display", sans-serif;
+
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sf-pro);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sf-pro);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--rainbow-blue) 25%, transparent);
+  color: var(--foreground);
+}
+
+.rainbow-line {
+  height: 3px;
+  background: var(--rainbow-gradient);
+  border-radius: 9999px;
+}
+
+.font-display {
+  font-family: var(--font-sf-pro);
+}
+
+.rainbow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--rainbow-gradient);
+}
