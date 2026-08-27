@@ -16,7 +16,7 @@ export function SiteHeader({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-black/[0.06] bg-[#fafafa]/80 backdrop-blur-xl backdrop-saturate-150",
+        "sticky top-[52px] z-50 border-b border-black/[0.06] bg-[#fafafa]/80 backdrop-blur-xl backdrop-saturate-150",
         className,
       )}
     >

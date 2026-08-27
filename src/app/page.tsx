@@ -1,23 +1,22 @@
-import { AboutSection } from "@/components/about-section";
-import { EventsSection } from "@/components/events-section";
-import { Hero } from "@/components/hero";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
-import { SlackCta } from "@/components/slack-cta";
+import { ClaudeHome } from "@/components/claude-home";
+import { DesignComparison } from "@/components/design-comparison";
+import { OpenAIHome } from "@/components/openai-home";
 
 export const revalidate = 1800;
 
-export default function Home() {
+type HomeProps = {
+  searchParams: Promise<{ design?: string | string[] }>;
+};
+
+export default async function Home({ searchParams }: HomeProps) {
+  const params = await searchParams;
+  const initialDesign = params.design === "claude" ? "claude" : "openai";
+
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <Hero />
-        <EventsSection />
-        <SlackCta />
-        <AboutSection />
-      </main>
-      <SiteFooter />
-    </>
+    <DesignComparison
+      initialDesign={initialDesign}
+      openAI={<OpenAIHome />}
+      claude={<ClaudeHome />}
+    />
   );
 }
