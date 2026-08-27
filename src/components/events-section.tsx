@@ -13,7 +13,7 @@ export async function EventsSection({ className }: { className?: string }) {
   return (
     <section
       id="events"
-      className={cn("bg-[#fafafa] px-6 py-20 sm:py-24", className)}
+      className={cn("px-6 py-20 sm:py-24", className)}
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -49,7 +49,7 @@ export async function EventsSection({ className }: { className?: string }) {
         ) : null}
 
         {events.length > 0 ? (
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {events.map((event) => (
               <EventCard
                 key={event.id}

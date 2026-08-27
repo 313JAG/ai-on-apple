@@ -5,6 +5,20 @@ import { cn } from "@/lib/utils";
 
 const FALLBACK_COVER = "/brand/cover.png";
 
+const ACCENT_CLASSES = [
+  "tile-blue",
+  "tile-purple",
+  "tile-teal",
+  "tile-orange",
+  "tile-pink",
+  "tile-green",
+] as const;
+
+function accentForTitle(title: string): string {
+  const sum = Array.from(title).reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  return ACCENT_CLASSES[sum % ACCENT_CLASSES.length];
+}
+
 function formatLocation(location: EventLocation): string {
   const parts = [location.venue, location.city].filter(Boolean);
   return parts.join(", ") || "Location TBA";
@@ -36,11 +50,12 @@ export function EventCard({
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-sm transition-shadow hover:shadow-md",
+        "bento-tile tile-wash group flex h-full flex-col",
+        accentForTitle(title),
         className,
       )}
     >
-      <div className="relative aspect-[16/9] overflow-hidden bg-[#f5f5f7]">
+      <div className="tile-content relative aspect-[16/9] overflow-hidden bg-[#f5f5f7]">
         <Image
           src={imageSrc}
           alt=""
@@ -56,7 +71,7 @@ export function EventCard({
         ) : null}
       </div>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="tile-content flex flex-1 flex-col p-5 sm:p-6">
         <time
           {...(startAt ? { dateTime: startAt } : {})}
           className="text-sm font-medium text-[#6e6e73]"

@@ -85,3 +85,132 @@ body {
   border-radius: 9999px;
   background: var(--rainbow-gradient);
 }
+
+/* Abstract mesh gradient — layered radial blooms behind the hero */
+.hero-aurora {
+  background:
+    radial-gradient(
+      42rem 28rem at 12% 8%,
+      color-mix(in srgb, var(--rainbow-blue) 34%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      36rem 26rem at 88% 2%,
+      color-mix(in srgb, var(--rainbow-purple) 32%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      34rem 24rem at 72% 62%,
+      color-mix(in srgb, var(--rainbow-pink) 26%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(
+      32rem 24rem at 24% 78%,
+      color-mix(in srgb, var(--rainbow-teal) 28%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(
+      28rem 20rem at 50% 30%,
+      color-mix(in srgb, var(--rainbow-orange) 20%, transparent),
+      transparent 74%
+    );
+  filter: blur(36px) saturate(122%);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(72% 62% at 50% 38%, black, transparent 100%);
+}
+
+.hero-fade {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--background) 82%, transparent) 62%,
+    var(--background)
+  );
+}
+
+/* Bento tiles */
+.bento-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.bento-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--card);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.bento-tile:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Accent washes for bento tiles */
+.tile-wash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  background: radial-gradient(
+    26rem 18rem at 82% 0%,
+    var(--tile-accent, transparent),
+    transparent 68%
+  );
+}
+
+.tile-blue {
+  --tile-accent: color-mix(in srgb, var(--rainbow-blue) 26%, transparent);
+}
+.tile-purple {
+  --tile-accent: color-mix(in srgb, var(--rainbow-purple) 26%, transparent);
+}
+.tile-teal {
+  --tile-accent: color-mix(in srgb, var(--rainbow-teal) 26%, transparent);
+}
+.tile-orange {
+  --tile-accent: color-mix(in srgb, var(--rainbow-orange) 26%, transparent);
+}
+.tile-pink {
+  --tile-accent: color-mix(in srgb, var(--rainbow-pink) 26%, transparent);
+}
+.tile-green {
+  --tile-accent: color-mix(in srgb, var(--rainbow-green) 26%, transparent);
+}
+
+.tile-content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-tile:hover {
+    transform: none;
+  }
+}

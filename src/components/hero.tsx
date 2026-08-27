@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 
 const SLACK_INVITE_URL =
@@ -8,17 +10,32 @@ export function Hero({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-[#fafafa] px-6 pb-20 pt-16 sm:pb-28 sm:pt-24",
+        "relative isolate overflow-hidden px-6 pb-24 pt-20 sm:pb-32 sm:pt-28",
         className,
       )}
     >
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <div className="hero-aurora absolute -inset-x-24 -top-32 h-[42rem]" />
+        <div className="hero-grid absolute inset-0" />
+        <div className="hero-fade absolute inset-x-0 bottom-0 h-64" />
+      </div>
+
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-        <div
-          className="mb-8 h-1 w-24 rounded-full bg-gradient-to-r from-[#ff375f] via-[#ff9500] via-[#34c759] via-[#007aff] to-[#af52de]"
-          aria-hidden
+        <span className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-white/70 px-4 py-1.5 text-xs font-medium text-[#1d1d1f] shadow-sm backdrop-blur">
+          <span className="rainbow-dot size-2" aria-hidden />
+          Australia &amp; New Zealand
+        </span>
+
+        <Image
+          src="/brand/logo.jpg"
+          alt="AI on Apple"
+          width={88}
+          height={88}
+          className="mt-8 rounded-3xl shadow-lg shadow-black/5"
+          priority
         />
 
-        <h1 className="text-5xl font-semibold tracking-tight text-[#1d1d1f] sm:text-6xl sm:leading-[1.05]">
+        <h1 className="mt-8 text-5xl font-semibold tracking-tight text-[#1d1d1f] sm:text-7xl sm:leading-[1.02]">
           AI on Apple
         </h1>
 
@@ -32,7 +49,7 @@ export function Hero({ className }: { className?: string }) {
             href={SLACK_INVITE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center rounded-full bg-[#1d1d1f] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#333336] sm:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-full bg-[#1d1d1f] px-7 py-3.5 text-sm font-medium text-white shadow-lg shadow-black/10 transition-colors hover:bg-[#333336] sm:w-auto"
           >
             Join on Slack
           </a>
@@ -40,11 +57,13 @@ export function Hero({ className }: { className?: string }) {
             href={LUMA_CALENDAR_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-medium text-[#1d1d1f] shadow-sm transition-colors hover:bg-black/[0.03] sm:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-full border border-black/10 bg-white/80 px-7 py-3.5 text-sm font-medium text-[#1d1d1f] shadow-sm backdrop-blur transition-colors hover:bg-white sm:w-auto"
           >
             View events on Luma
           </a>
         </div>
+
+        <div className="rainbow-line mt-14 w-40 opacity-80" aria-hidden />
       </div>
     </section>
   );
