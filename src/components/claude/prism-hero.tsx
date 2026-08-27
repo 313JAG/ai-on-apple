@@ -96,17 +96,23 @@ export function PrismHero({
               <span aria-hidden>↗</span>
             </PillLink>
             <PillLink
-              href={LUMA_CALENDAR_URL}
+              href={LINKEDIN_URL}
               variant="glass"
-              className="w-full sm:w-auto"
+              className="w-full text-[#0a66c2] sm:w-auto"
             >
-              Browse events
+              <span
+                aria-hidden
+                className="flex size-5 items-center justify-center rounded-[4px] bg-[#0a66c2] text-[11px] font-bold leading-none text-white"
+              >
+                in
+              </span>
+              Follow on LinkedIn
             </PillLink>
             <ArrowLink
-              href={LINKEDIN_URL}
+              href={LUMA_CALENDAR_URL}
               className="justify-center py-2 text-[#1d1d1f] sm:ml-2 sm:justify-start"
             >
-              LinkedIn
+              Browse events
             </ArrowLink>
           </div>
 

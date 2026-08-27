@@ -1,5 +1,4 @@
 import { LINKEDIN_URL, SLACK_URL } from "./constants";
-import { SpectrumBars } from "./spectrum-ribbon";
 
 const focus =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1769d2]";
@@ -74,17 +73,41 @@ export function CommunityBento() {
               </div>
             </article>
 
-            <article className="flex min-h-52 flex-col justify-between rounded-[1.9rem] border border-black/10 bg-[#e5d9ef] p-6 text-[#4e3167] sm:p-8">
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group flex min-h-52 flex-col justify-between rounded-[1.9rem] border border-[#0a66c2]/15 bg-[#dceafa] p-6 text-[#174a7a] transition-transform hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8 ${focus}`}
+            >
               <div className="flex items-center justify-between">
                 <p className="text-[12px] font-semibold uppercase tracking-[0.12em] opacity-65">
-                  Shared focus
+                  LinkedIn
                 </p>
-                <SpectrumBars />
+                <span
+                  aria-hidden
+                  className="flex size-8 items-center justify-center rounded-lg bg-[#0a66c2] text-[15px] font-bold text-white"
+                >
+                  in
+                </span>
               </div>
-              <p className="max-w-[12ch] text-[clamp(1.65rem,8vw,2.5rem)] font-semibold leading-[1.05] tracking-[-0.045em]">
-                Build. Teach. Ship. Repeat.
-              </p>
-            </article>
+              <div>
+                <p className="max-w-[13ch] text-[clamp(1.65rem,8vw,2.5rem)] font-semibold leading-[1.05] tracking-[-0.045em]">
+                  Follow AI on Apple.
+                </p>
+                <p className="mt-3 text-[14px] font-medium opacity-75">
+                  Updates, event recaps and community highlights.
+                </p>
+                <span className="mt-5 inline-flex min-h-11 items-center text-[14px] font-semibold">
+                  Open LinkedIn
+                  <span
+                    aria-hidden
+                    className="ml-2 transition-transform group-hover:translate-x-0.5"
+                  >
+                    ↗
+                  </span>
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       </section>

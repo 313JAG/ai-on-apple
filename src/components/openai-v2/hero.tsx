@@ -6,6 +6,7 @@ import type { CommunityEvent } from "@/lib/luma/types";
 import {
   FALLBACK_COVER,
   formatLocation,
+  LINKEDIN_URL,
   LUMA_URL,
   SLACK_URL,
 } from "./constants";
@@ -142,12 +143,26 @@ export function EditorialHero({
               Join the community
             </a>
             <a
-              href="#openai-events"
-              className={`inline-flex min-h-12 items-center justify-center rounded-full border border-black/15 bg-white/50 px-6 text-[15px] font-semibold text-[#171717] backdrop-blur-md transition-colors hover:bg-white/80 ${buttonFocus}`}
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full border border-black/15 bg-white/65 px-6 text-[15px] font-semibold text-[#171717] backdrop-blur-md transition-colors hover:bg-white ${buttonFocus}`}
             >
-              See what&apos;s on ↓
+              <span
+                aria-hidden
+                className="flex size-5 items-center justify-center rounded-[4px] bg-[#0a66c2] text-[11px] font-bold leading-none text-white"
+              >
+                in
+              </span>
+              Follow on LinkedIn
             </a>
           </div>
+          <a
+            href="#openai-events"
+            className={`mt-3 inline-flex min-h-11 items-center text-[14px] font-semibold text-[#4f4b45] underline-offset-4 hover:underline ${buttonFocus}`}
+          >
+            See upcoming events&nbsp; ↓
+          </a>
         </div>
 
         <div className="min-w-0 lg:col-span-5">
